@@ -9,6 +9,7 @@ include = [ "tests" ]
 [tool.poetry.dependencies]
 python = "^3.8"
 fastapi = "^0.75.2"
+requests = "^2.27.1" # Needed for FastAPI's TestClient see /tests/test_server.py TODO(lookup potential way to eliminate the need to strictly define this dependancy)
 
 [tool.poetry.dev-dependencies]
 pre-commit = "^2.18.1"
