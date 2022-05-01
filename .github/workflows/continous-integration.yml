@@ -1,0 +1,28 @@
+name: CI Pipeline
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  flake8:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.8.x
+      - name: Checkout
+        uses: actions/checkout@main
+      - name: Install Poetry
+        run: pip install poetry
+      - name: Install Dependancies
+        run: poetry install
+      - name: Flake8
+        run: poetry run flake8 --exclude .venv
+      - name: MyPy
+        run: poetry run mypy --strict .
+      - name: PyTest
+        run: poetry run pytest
