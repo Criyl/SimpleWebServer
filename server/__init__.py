@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-__version__: str = '0.0.1'
+__version__ = '1.0.0'
 app: FastAPI = FastAPI()
 
 
