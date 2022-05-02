@@ -1,0 +1,19 @@
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: simple-web-server
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: simple-web-server
+    template:
+      metadata:
+        labels:
+          app: simple-web-server
+      spec:
+        containers:
+          - image: criyl/simplewebserver:v1.0.0
+            name: server-container
+            ports:
+              - containerPort: 8000
