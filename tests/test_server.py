@@ -1,9 +1,5 @@
-from server import __version__, app
+from server import app
 from fastapi.testclient import TestClient
-
-
-def test_version() -> None:
-    assert __version__ == '1.0.0'
 
 
 def test_request() -> None:
