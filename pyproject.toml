@@ -29,7 +29,7 @@ version_variable = [
     "pyproject.toml:version"
 ]
 version_pattern =[
-    "manifest.yml:VERSION v{version}"
+    "manifest.yml:criyl/simplewebserver:{version}"
 ]
 branch = "main"
 upload_to_pypi = false
