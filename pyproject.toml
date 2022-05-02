@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "server"
-version = "0.0.1"
+version = "1.0.0"
 description = "A Simple Web Server"
 authors = ["Christopher Carroll <chris@carroll.codes>"]
 license = "MIT"
