@@ -9,7 +9,7 @@ RUN pip install poetry
 WORKDIR /app
 
 COPY pyproject.toml poetry.toml poetry.lock /app/
-RUN poetry install --no-interaction
+RUN poetry install --no-interaction --no-dev
 
 COPY . .
 

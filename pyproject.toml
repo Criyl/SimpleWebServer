@@ -10,11 +10,11 @@ include = [ "server", "Dockerfile" ]
 python = "^3.8"
 fastapi = "^0.75.2"
 requests = "^2.27.1" # Needed for FastAPI's TestClient see /tests/test_server.py TODO(lookup potential way to eliminate the need to strictly define this dependancy)
+uvicorn = "^0.17.6"
+gunicorn = "^20.1.0"
 
 [tool.poetry.dev-dependencies]
 pre-commit = "^2.18.1"
-uvicorn = "^0.17.6"
-gunicorn = "^20.1.0"
 pytest = "^7.1.2"
 mypy = "^0.950"
 flake8 = "^4.0.1"
