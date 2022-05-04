@@ -5,10 +5,10 @@ __version__ = '1.1.0'
 app: FastAPI = FastAPI()
 
 
-class Response(BaseModel):
+class ResponseContentModel(BaseModel):
     msg: str
 
 
 @app.get("/")
-def getHelloWorld() -> Response:
-    return Response(msg="hello world")
+def getHelloWorld() -> ResponseContentModel:
+    return ResponseContentModel(msg="hello world")

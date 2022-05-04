@@ -22,7 +22,7 @@ This project functions as a challenge/assessment for the purpose of learning the
 ---
 *Install Poetry & Dependancies*
 ```
-pip install poetry
+pip install poetry virtualenv tomli
 poetry install
 ```
   
