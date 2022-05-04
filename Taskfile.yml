@@ -1,0 +1,52 @@
+version: '3'
+
+tasks:
+  install:
+    desc:
+      Install poetry aswell as all dependancies. Requires pip.
+    cmds:
+      - pip install poetry
+      - poetry install
+      - pre-commit install
+
+  deploy-container:
+    desc:
+      Deploys the server in a docker container
+    cmds:
+      - docker build -t simple_web_server .
+      - docker run -p 8000:8000 simple_web_server
+
+  deploy-manifest:
+    desc: Deploys the server as a kubernetes server
+    summary: |
+      Assumes `minikube start` has been called.
+
+      Creates local kubernetes service of server accessible at http://localhost:8000/
+      based on manifest file manifest.yml and tunnels automatically
+
+      WARNING: blocks terminal
+    cmds:
+      - cmd: kubectl delete deployment simple-web-server
+        ignore_error: true
+      - kubectl create -f manifest.yml
+      - cmd: kubectl delete service simple-service
+        ignore_error: true
+      - kubectl expose deployment simple-web-server --type=LoadBalancer --name=simple-service
+      - minikube tunnel simple-service --log_file service.log
+
+  health-check:
+    desc: Runs a series of health checks.
+    summary: |
+      Runs a series of health-check that checks the repository against flake8, mypy, and pytest
+
+      Alternatively you can run `pre-commit run` which will test your staged changes.
+    cmds:
+      - poetry run flake8 --exclude .venv
+      - poetry run mypy --strict .
+      - poetry run pytest ./tests
+
+  host:
+    desc:
+      Host a local server
+    cmds:
+      - poetry run uvicorn server:app
