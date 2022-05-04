@@ -74,3 +74,15 @@ minikube tunnel simple-service --log_file service.log
 ```
 
 </details>
+
+<details>
+  <summary>Tasks Runner</summary>
+
+---
+  
+*A Taskfile is provided for easier execution of common tasks* 
+
+*How to install Task*
+https://taskfile.dev/#/installation
+
+</details>

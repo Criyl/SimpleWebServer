@@ -17,7 +17,7 @@ tasks:
       - docker run -p 8000:8000 simple_web_server
 
   deploy-manifest:
-    desc: Deploys the server as a kubernetes server
+    desc: Deploys the server as a kubernetes server. Requires kubectl and minikube.
     summary: |
       Assumes `minikube start` has been called.
 
