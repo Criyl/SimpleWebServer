@@ -5,7 +5,7 @@ tasks:
     desc:
       Install poetry aswell as all dependancies. Requires pip.
     cmds:
-      - pip install poetry
+      - pip install poetry virtualenv tomli
       - poetry install
       - pre-commit install
 
