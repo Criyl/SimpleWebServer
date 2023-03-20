@@ -13,7 +13,7 @@
           app: simple-web-server
       spec:
         containers:
-          - image: criyl/simplewebserver:1.1.1
+          - image: criyl/simplewebserver:1.2.0
             name: server-container
             ports:
               - containerPort: 8000
