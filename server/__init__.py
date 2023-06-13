@@ -11,4 +11,5 @@ class ResponseContentModel(BaseModel):
 
 @app.get("/")
 def getHelloWorld() -> ResponseContentModel:
+    # fix some bug
     return ResponseContentModel(msg="hello world")
